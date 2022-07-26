@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController as AdminController;
+use App\Http\Controllers\Admin\TranslateController as Translate;
+use App\Http\Controllers\Admin\ProjectCategoryController as ProjectCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.home');
+    Route::get('/translate', [Translate::class, 'index'])->name('admin.translations');
+    Route::post('/translate',[Translate::class, 'update']);
+    Route::post('/translate/create', [Translate::class, 'create_files'])->name('admin.translate_create');
+    Route::resource('/project-category', ProjectCategory::class);
+
+});
