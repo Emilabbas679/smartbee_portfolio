@@ -21,9 +21,9 @@ return new class extends Migration
             $table->text('description');
             $table->dateTime('delivery_date')->nullable();
             $table->string('domain')->nullable();
-            $table->string('image')->nullable();
+            $table->integer('image_index')->default(0);
+            $table->integer('image_main')->default(0);
             $table->string('background')->nullable();
-            $table->text('gallery')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('project_categories');
@@ -31,8 +31,8 @@ return new class extends Migration
             $table->index('delivery_date');
             $table->index('created_at');
             $table->index('updated_at');
-
         });
+
     }
 
     /**

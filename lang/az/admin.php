@@ -1,5 +1,16 @@
 <?php 
  return [
+"image_index_project" => "İmage index",
+"image_main_project" => "İmage main",
+"gallery" => "Gallery",
+"description" => "Description",
+"delivery_date" => "Delivery",
+"background" => "Background",
+"domain" => "Domain",
+"category" => "Kateqoriya",
+"not_selected" => "Seçilməyib",
+"Description" => "Description",
+"success_operation" => "Müvvəffəqiyyətlə yerinə yetirildi",
 "save" => "Save",
 "add" => "Add",
 "status_id_0" => "Deactive",

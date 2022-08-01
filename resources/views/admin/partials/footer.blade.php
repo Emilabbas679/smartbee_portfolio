@@ -43,3 +43,6 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('/back/js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('/back/js/demo/chart-pie-demo.js')}}"></script>
+
+
+@yield('js')
