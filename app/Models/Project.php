@@ -17,7 +17,6 @@ class Project extends Model
     protected $table = 'projects';
     public $translatable = ['title', 'description'];
 
-
     protected $guarded = [];
 
     public $sluggable = 'title.en';
