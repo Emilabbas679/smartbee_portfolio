@@ -52,7 +52,7 @@ class ProjectCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -63,7 +63,8 @@ class ProjectCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = ProjectCategory::findorfail($id);
+        return view('admin.project-categories.edit', compact('item'));
     }
 
     /**
@@ -73,9 +74,13 @@ class ProjectCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectCategoryRequest $request, $id)
     {
-        //
+        $item = ProjectCategory::findorfail($id);
+        $opt = $request->all();
+        $item->update($opt);
+        $item->save();
+        return redirect()->route('project-category.index')->with('success', __('admin.success_operation'));
     }
 
     /**
@@ -86,6 +91,8 @@ class ProjectCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = ProjectCategory::findorfail($id);
+        $item->delete();
+        return redirect()->route('project-category.index')->with('success', __('admin.success_operation'));
     }
 }

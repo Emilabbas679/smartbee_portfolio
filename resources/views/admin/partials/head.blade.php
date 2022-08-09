@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="Smartbee">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+
 <title>@yield('title') | {{ env('APP_NAME') }}</title>
 <!-- Custom fonts for this template-->
 <link href="{{asset('/back/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -15,3 +17,5 @@
 
     .invalid-feedback{display: block !important;}
 </style>
+
+@yield('css')

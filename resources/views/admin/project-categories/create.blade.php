@@ -33,7 +33,7 @@
                                         <label for="title">{{__('admin.title')}}</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input id="title_{{$locale['code']}}" type="text" class="form-control @error('address.'.$locale['code']) is-invalid @enderror"
+                                        <input id="title_{{$locale['code']}}" type="text" class="form-control @error('title.'.$locale['code']) is-invalid @enderror"
                                                name="title[{{$locale['code']}}]" value="{{ old('title.'.$locale['code'])}}"
                                                placeholder="{{__('admin.title')}} ({{$locale['code']}})" >
                                         @error('title.'.$locale['code'])
@@ -54,8 +54,8 @@
                         </div>
                         <div class="col-md-10">
                             <select name="status_id" id="status_id" class="form-control">
-                                <option value="1" {{selected(old('status'),'1')}}>{{__('admin.status_id_1')}}</option>
-                                <option value="0" {{selected(old('status'),'0')}}>{{__('admin.status_id_0')}}</option>
+                                <option value="1" {{selected(old('status_id'),'1')}}>{{__('admin.status_id_1')}}</option>
+                                <option value="0" {{selected(old('status_id'),'0')}}>{{__('admin.status_id_0')}}</option>
                             </select>
                         </div>
                     </div>
